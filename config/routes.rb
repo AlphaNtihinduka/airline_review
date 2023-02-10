@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'pages#index'
+  # root 'pages#index'
 
   namespace :api do
     namespace :v1 do
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       resources :reviews, only: [:create, :destroy]
     end
   end
-  get '*path', to: 'pages#index', via: :all
+  # get '*path', to: 'pages#index', via: :all
+
+  get 'app', to: 'pages#index'
+  get 'app/*path', to: 'pages#index'
 
 end
